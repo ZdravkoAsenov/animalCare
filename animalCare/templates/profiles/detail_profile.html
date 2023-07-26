@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <!-- Your template code to display the profile details -->
+<h1>Profile Details</h1>
+<p>First Name: {{ profile.first_name }}</p>
+<p>Last Name: {{ profile.last_name }}</p>
+<p>Age: {{ profile.age }}</p>
+<p>Gender: {{ profile.gender }}</p>
+<!-- Add other fields as needed -->
+    <a href="{% url 'edit profile' %}">Edit profile</a>
+    <a href="{% url 'delete profile' %}">Delete profile</a>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h1>Delete Profile</h1>
+<p>Are you sure you want to delete your profile?</p>
+<form method="post" action="{% url 'delete profile' %}">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Yes, Delete</button>
+</form>
+{##}
+{#{% if deleted %}#}
+{#  <p>Profile deleted successfully.</p>#}
+{#  <!-- You can add additional content or redirect to a different page if desired -->#}
+{#{% endif %}#}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h1>Saved Animals</h1>
+    <ul>
+        {% for saved_animal in saved_animals %}
+            <li>
+                <strong>Animal Name:</strong> {{ saved_animal.animal.name }}<br>
+                <strong>Review Date:</strong> {{ saved_animal.review_date }}<br>
+                <strong>Description:</strong> {{ saved_animal.description }}
+            </li>
+        {% empty %}
+            <li>No saved animals found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
