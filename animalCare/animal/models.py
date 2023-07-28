@@ -20,10 +20,24 @@ class Animal(models.Model):
 
 
 class SavedAnimal(models.Model):
+    class ReviewType(models.TextChoices):
+        PRIMARY_EXAMINATION = 'Primary examination', 'Primary examination'
+        CASTRATION = 'Castration', 'Castration'
+        VACCINATION = 'Vaccination', 'Vaccination'
+        DEWORMING = 'Deworming', 'Deworming'
+
     user = models.ForeignKey(userModel, on_delete=models.CASCADE)
     animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
     review_date = models.DateField()
+    review_hour = models.IntegerField(choices=[(hour, hour) for hour in range(9, 19) if hour != 12])
+    review_type = models.CharField(
+        max_length=30,
+        choices=ReviewType.choices,
+        default=ReviewType.PRIMARY_EXAMINATION,
+    )
     description = models.TextField(blank=True, null=True)
 
     class Meta:
-        unique_together = ('user', 'animal')
+        unique_together = ('user', 'animal', 'review_hour')
+
+

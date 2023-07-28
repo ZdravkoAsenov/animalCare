@@ -7,10 +7,14 @@
             <li>
                 <strong>Animal Name:</strong> {{ saved_animal.animal.name }}<br>
                 <strong>Review Date:</strong> {{ saved_animal.review_date }}<br>
-                <strong>Description:</strong> {{ saved_animal.description }}
+                <strong>Review hour:</strong> {{ saved_animal.review_hour }}<br>
+                <strong>Review type:</strong> {{ saved_animal.review_type }}<br>
+                <strong>Description:</strong> {{ saved_animal.description }}<br>
+                <a href="{% url 'saved animal hour edit' saved_animal.pk %}">Edit saved hour</a>
+                <a href="{% url 'saved animal hour delete' saved_animal.pk %}">Delete saved hour</a>
             </li>
         {% empty %}
-            <li>No saved animals found.</li>
+            <li>There are no scheduled vet appointments</li>
         {% endfor %}
     </ul>
 {% endblock %}

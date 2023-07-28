@@ -9,7 +9,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# test password - M95w^x0!#7im
 
 INSTALLED_APPS = [
     'django.contrib.admin',
