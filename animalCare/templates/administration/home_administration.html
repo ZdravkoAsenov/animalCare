@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <nav>
+        <a href="{% url 'admin user list' %}">Users</a>
+        <a href="{% url 'admin animal list' %}">Animals</a>
+        <a href="{% url 'admin exploration list' %}">Examinations</a>
+    </nav>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+      <h1>All Saved Animals</h1>
+    <ul>
+        {% for hours in saved_animals %}
+        <li>
+            Animal: <a href="{% url 'detail animal' hours.animal.pk %}">{{ hours.animal.name }}</a>
+            User: <a href="{% url 'detail profile' hours.user.pk %}">{{ hours.user.username }}</a>
+            Review Date: {{ hours.review_date }}
+            Review hour:: {{ hours.review_hour }}
+            Review type: {{ hours.review_type }}
+            Description: {{ hours.description }}
+            <a href="{% url 'add examination' hours.user.pk hours.animal.pk %}">Еxamine</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

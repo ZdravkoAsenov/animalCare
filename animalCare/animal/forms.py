@@ -2,7 +2,7 @@ import datetime
 
 from django import forms
 
-from animal.models import Animal, SavedAnimal
+from animal.models import Animal, SavedAnimal, MedicalExamination
 
 
 class BaseAnimalForm(forms.ModelForm):
@@ -86,3 +86,9 @@ class SavedAnimalForm(forms.ModelForm):
 
 class EditSaveAnimalForm(SavedAnimalForm):
     pass
+
+
+class ExaminationForm(forms.ModelForm):
+    class Meta:
+        model = MedicalExamination
+        exclude = ['user', 'animal']

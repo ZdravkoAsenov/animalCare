@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h1>Profile Details</h1>
+    <p>Username: {{ object.profile.username }}</p>
+    <p>Email: {{ object.profile.email }}</p>
+    <p>Groups:
+        {% for group in user.groups.all %}
+            {{ group.name }}
+            {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+    <p>First Name: {{ object.first_name }}</p>
+    <p>Last Name: {{ object.last_name }}</p>
+    <p>Age: {{ object.age }}</p>
+    <p>Gender: {{ object.gender }}</p>
+     <h2>Animals:</h2>
+    <ul>
+        {% for animal in object.profile.animal_set.all %}
+            <li>{{ animal.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

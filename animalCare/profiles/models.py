@@ -44,6 +44,8 @@ class CustomUser(PermissionsMixin, AbstractBaseUser):
 
     is_superuser = models.BooleanField(default=False)
 
+    is_vet = models.BooleanField(default=False)
+
     USERNAME_FIELD = 'username'
 
     REQUIRED_FIELDS = []
@@ -89,6 +91,9 @@ class ProfileModel(models.Model):
         on_delete=models.CASCADE,
     )
 
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
+
     def get_full_name(self):
         if self.first_name and self.last_name:
             return f"{self.first_name} {self.last_name}"
@@ -98,9 +103,6 @@ class ProfileModel(models.Model):
             return self.last_name
         else:
             return None
-
-    def __str__(self):
-        return f'{self.id} {self.get_full_name()}'
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

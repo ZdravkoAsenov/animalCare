@@ -4,7 +4,7 @@ from profiles.views import ProfileCreateView, CustomLoginView, logout_view, prof
     profile_edit, profile_delete
 
 urlpatterns = [
-    path('', profile_detail, name='detail profile'),
+    path('<int:user_pk>/', profile_detail, name='detail profile'),
     path('edit/', profile_edit, name='edit profile'),
     path('delete/', profile_delete, name='delete profile'),
     path('register/', ProfileCreateView.as_view(), name='register'),

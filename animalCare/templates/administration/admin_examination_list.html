@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+  <h1>Examination List</h1>
+  <ul>
+    {% for examination in object_list %}
+      <li>
+        {{ examination.animal.name }} - {{ examination.user.username }} <!-- Adjust the fields according to your model -->
+        <a href="{% url 'admin exploration detail' examination.pk %}">Detail</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

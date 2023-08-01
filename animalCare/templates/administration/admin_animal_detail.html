@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h1>Animal Detail</h1>
+    <p>Name: {{ object.name }}</p>
+    <p>Species: {{ object.species }}</p>
+    <p>Breed: {{ object.breed }}</p>
+    <p>Age: {{ object.age }}</p>
+    <p>Gender: {{ object.get_gender_display }}</p>
+    <p>Weight: {{ object.weight }}</p>
+    <p>Owner: <a href="{% url 'admin user detail' object.owner.pk %}">{{ object.owner.username }}</a></p>
+    <!-- Add other fields as needed -->
+{% endblock %}

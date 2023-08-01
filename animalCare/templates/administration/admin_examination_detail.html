@@ -1,0 +1,10 @@
+<!-- examination_detail.html -->
+{% extends 'base/base.html' %}
+
+{% block content %}
+  <h1>Examination Detail</h1>
+  <p>Title: {{ examination.title }}</p>
+  <p>Date: {{ examination.date }}</p>
+  <!-- Add other fields as needed -->
+  <a href="{% url 'admin exploration list' %}">Back to Examination List</a>
+{% endblock %}

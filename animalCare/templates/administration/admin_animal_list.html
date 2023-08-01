@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h1>All Animals</h1>
+    <ul>
+        {% for animal in object_list %}
+            <li>
+                <strong>Name:</strong> {{ animal.name }}
+                <strong>User:</strong> {{ animal.owner.username }}
+                <button onclick="window.location.href='{% url 'admin animal detail' animal.pk %}'">Details</button>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

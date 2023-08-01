@@ -4,9 +4,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import generic as view
 
-from animal.forms import CreateAnimalForm, EditAnimalForm, SavedAnimalForm, EditSaveAnimalForm,\
-    DeleteAnimalForm
-from animal.models import Animal, SavedAnimal
+from animal.decorators import allowed_groups
+from animal.forms import CreateAnimalForm, EditAnimalForm, SavedAnimalForm, EditSaveAnimalForm, \
+    DeleteAnimalForm, ExaminationForm
+from animal.models import Animal, SavedAnimal, MedicalExamination
+from core.mixins import AllowedGroups
 
 
 class CreateAnimalView(view.CreateView):
@@ -122,3 +124,44 @@ class SavedAnimalDeleteView(auth_mixins.LoginRequiredMixin, view.DeleteView):
     def get_object(self, queryset=None):
         animal_pk = self.kwargs.get('animal_pk')
         return get_object_or_404(SavedAnimal, id=animal_pk)
+
+
+@login_required()
+@allowed_groups(['Vet'])
+def examination_list(request):
+    saved_animals = SavedAnimal.objects.all()
+
+    context = {
+        'saved_animals': saved_animals,
+    }
+
+    return render(request, 'animal/examination_list.html', context=context)
+
+
+class AddExamination(auth_mixins.LoginRequiredMixin, auth_mixins.UserPassesTestMixin, view.CreateView):
+    model = MedicalExamination
+    form_class = ExaminationForm
+    template_name = 'animal/add_examination.html'
+    success_url = reverse_lazy('list examination')
+
+    def get_form_kwargs(self):
+        kwargs = super(AddExamination, self).get_form_kwargs()
+        saved_animal = get_object_or_404(SavedAnimal, user_id=self.kwargs['user_pk'],
+                                         animal_id=self.kwargs['animal_pk'])
+        kwargs['instance'] = MedicalExamination(user=saved_animal.user, animal=saved_animal.animal)
+        return kwargs
+
+    def test_func(self):
+        user = self.request.user
+        return user.groups.filter(name='Vet').exists()
+
+
+@login_required()
+def user_examinations(request):
+    examinations = MedicalExamination.objects.filter(user=request.user)
+
+    context = {
+        'examinations': examinations
+    }
+
+    return render(request, 'animal/user_examinations.html', context=context)

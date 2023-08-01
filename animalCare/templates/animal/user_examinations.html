@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h1>Your Examinations</h1>
+    <ul>
+        {% for examination in examinations %}
+        <li>
+            Animal: {{ examination.animal.name }}
+            Date: {{ examination.date|date:'d M Y' }}
+            Diagnosis: {{ examination.diagnosis }}
+            Treatment: {{ examination.treatment }}
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
