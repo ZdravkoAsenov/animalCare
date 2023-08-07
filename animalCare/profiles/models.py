@@ -1,5 +1,5 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.contrib.auth.models import PermissionsMixin
+from django.contrib.auth.models import PermissionsMixin, Group
 from django.db import models
 
 
@@ -106,4 +106,13 @@ class ProfileModel(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
+
+
+def create_staff_group():
+    # Check if the 'Staff' group already exists
+    group, created = Group.objects.get_or_create(name='Staff')
+    if created:
+        print("Group 'Staff' created successfully.")
+    else:
+        print("Group 'Staff' already exists.")
 
