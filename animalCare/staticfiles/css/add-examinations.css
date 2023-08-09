@@ -1,45 +1,38 @@
-#add-animal{
+#add-examinations{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
+    margin-top: 2rem;
 }
 
-.add-animal-form{
-    width: 30vw;
-    height: 85vh;
+#add-examinations .add-examinations-form{
+    width: 45vw;
+    height: 110vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: #b1f1ff;
+    background-color: white;
     border-radius: 0.5rem;
 }
 
-.add-animal-form h2{
+#add-examinations .add-examinations-form h2{
     font-size: 2rem;
     font-weight: 500;
     border-bottom: 2px solid black;
 }
 
-.add-animal-form label{
+#add-examinations .add-examinations-form label{
     display: block;
     cursor: pointer;
     font-weight: 500;
     margin-bottom: 5px;
 }
 
-.add-animal-form input{
-    width: 220px;
-}
-
-.add-animal-form select{
-    width: 220px;
-}
-
-.add-animal-form button{
-    width: 80%;
+#add-examinations .add-examinations-form button{
+    width: 50%;
     border-radius: 5px;
     border: none;
     color: #fff;
@@ -51,7 +44,7 @@
     margin-bottom: 1rem;
 }
 
-.add-animal-form button:hover{
+#add-examinations .add-examinations-form button:hover{
     background: linear-gradient(135deg, #9b59b6, #71b7e6);
     transform: scale(1.1);
 }

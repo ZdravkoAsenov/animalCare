@@ -1,0 +1,68 @@
+#delete-profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#delete-profile .delete-profile-form{
+    width: 35vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+#delete-profile .delete-profile-form h2{
+    font-size: 2rem;
+    font-weight: 500;
+    border-bottom: 2px solid black;
+    font-family: Arial, serif;
+}
+
+#delete-profile .delete-profile-form p{
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: Arial, serif;
+}
+
+#delete-profile .delete-profile-form button{
+    width: 50%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+#delete-profile .delete-profile-form button:hover{
+    background: linear-gradient(135deg, #9b59b6, #71b7e6);
+    transform: scale(1.1);
+}
+
+#delete-profile .delete-profile-form a{
+    width: 50%;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    margin-bottom: 1rem;
+}
+
+#delete-profile .delete-profile-form a:hover {
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    transform: scale(1.1);
+}

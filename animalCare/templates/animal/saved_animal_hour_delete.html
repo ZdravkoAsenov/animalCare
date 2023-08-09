@@ -1,11 +1,13 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h1>Delete Save Hour</h1>
-    <p>Are you sure you want to delete this save hour for {{ object.animal.name }}?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Yes, Delete</button>
-        <a href="{% url 'saved animal hour detail' %}">Cancel</a>
-    </form>
+    <div id="delete-saved-hour">
+        <form class="delete-saved-hour-form" method="post">
+            <h2>Delete Save Hour</h2>
+            {% csrf_token %}
+             <p>Are you sure you want to delete this save hour for {{ object.animal.name }}?</p>
+            <button>Yes, Delete</button>
+            <a href="{% url 'saved animal hour detail' %}">Cancel</a>
+        </form>
+    </div>
 {% endblock %}

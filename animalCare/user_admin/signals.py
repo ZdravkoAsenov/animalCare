@@ -6,3 +6,4 @@ from django.dispatch import receiver
 @receiver(post_migrate)
 def create_staff_group(sender, **kwargs):
     Group.objects.get_or_create(name='Staff')
+    Group.objects.get_or_create(name='Vet')

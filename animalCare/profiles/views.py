@@ -40,7 +40,11 @@ def logout_view(request):
 def profile_detail(request, user_pk):
     profile = ProfileModel.objects.get(pk=user_pk)
 
-    return render(request, 'profiles/detail_profile.html', {'profile': profile})
+    context = {
+        'profile': profile
+    }
+
+    return render(request, 'profiles/detail_profile.html', context=context)
 
 
 @login_required
@@ -51,8 +55,7 @@ def profile_edit(request):
         form = EditProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Profile updated successfully.')
-            return redirect('detail profile')
+            return redirect('detail profile', user_pk=request.user.pk)
     else:
         form = EditProfileForm(instance=profile)
 
@@ -77,7 +80,8 @@ def profile_delete(request):
         form = DeleteProfileForm()
 
     context = {
-        'form': form
+        'form': form,
+        'user': user
     }
 
     return render(request, 'profiles/delete_profile.html', context=context)

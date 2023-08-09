@@ -1,0 +1,30 @@
+#user-examinations{
+    margin-top: 2rem;
+}
+
+#user-examinations .user-examinations-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#user-examinations h1{
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#user-examinations .user-examinations-container .user-examinations-box{
+    background-color: white;
+    width: 80%;
+    border-radius: 5px;
+    margin: 1.5rem;
+    padding: 1rem;
+}
+
+#user-examinations .user-examinations-container .user-examinations-box p{
+    text-align: center;
+}

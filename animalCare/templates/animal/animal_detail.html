@@ -1,13 +1,19 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-<p>Name: {{ animal.name }}</p>
-<p>Species: {{ animal.species }}</p>
-<p>Breed: {{ animal.breed }}</p>
-<p>Age: {{ animal.age }}</p>
-<p>Gender: {{ animal.get_gender_display }}</p>
-<p>Weight: {{ animal.weight }}</p>
+    <div id="detail-animal">
+        <h1>Detail</h1>
+        <div class="animal-list-container">
+            <p><strong>Name:</strong> {{ animal.name }}</p>
+            <p><strong>Species:</strong> {{ animal.species }}</p>
+            <p><strong>Breed:</strong> {{ animal.breed }}</p>
+            <p><strong>Age:</strong> {{ animal.age }}</p>
+            <p><strong>Gender:</strong> {{ animal.get_gender_display }}</p>
+            <p><strong>Weight:</strong> {{ animal.weight }} kg</p>
 
-<a href="{% url 'edit animal' animal.pk %}">Edit</a>
-<a href="{% url 'delete animal' animal.pk %}">Delete</a>
+            <a href="{% url 'edit animal' animal.pk %}">Edit</a>
+            <a href="{% url 'delete animal' animal.pk %}">Delete</a>
+
+        </div>
+    </div>
 {% endblock %}

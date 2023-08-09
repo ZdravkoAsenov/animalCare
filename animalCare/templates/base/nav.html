@@ -10,7 +10,7 @@
         <a href="{% url 'create animal' %}">Add animal</a>
         <a href="{% url 'list animal' %}">List animal</a>
         <a href="{% url 'detail profile' user.pk %}">Profile</a>
-        <a href="{% url 'saved animal hour detail' %}">Recorded hours</a>
+        <a href="{% url 'saved animal hour detail' %}">Saved hours</a>
         <a href="{% url 'user examinations' %}">Examinations</a>
     {% else %}
         <!-- User is not logged in: show register and login links -->
@@ -23,8 +23,5 @@
     {% if user|is_member_of_group:'Staff' %}
             <a href="{% url 'home administration' %}">Administration</a>
         {% endif %}
-</nav>
-
-    <!-- Common links visible to both logged-in and logged-out users -->
-
+<div><i class="fa-solid fa-paw"></i></div>
 </nav>

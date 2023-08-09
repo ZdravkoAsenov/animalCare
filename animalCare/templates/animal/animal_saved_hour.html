@@ -1,9 +1,12 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <form method="post" action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Animal for Review</button>
-  </form>
+    <div id="record-hour">
+        <form class="record-hour-form" method="post">
+            <h2>Record hour</h2>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Save Animal for Review</button>
+        </form>
+    </div>
 {% endblock %}

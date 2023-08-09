@@ -1,9 +1,16 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-{% for animal in object_list %}
-    <p>{{ animal.name }} - {{ animal.gender }}</p>
-    <a href="{% url 'detail animal' animal.pk %}">Detail</a>
-    <a href="{% url 'save hour animal' animal.pk %}">Save hour for vet</a>
-{% endfor %}
+    <div id="list-animal">
+    <h1>List of Animals</h1>
+        <div class="animal-list-container">
+            {% for animal in object_list %}
+                <div class="animal-box">
+                    <h2>{{ animal.name }}</h2>
+                    <a href="{% url 'detail animal' animal.pk %}">Detail</a>
+                    <a href="{% url 'save hour animal' animal.pk %}">Save hour for vet</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

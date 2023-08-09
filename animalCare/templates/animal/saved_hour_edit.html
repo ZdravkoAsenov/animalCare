@@ -1,11 +1,13 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h1>Edit Saved Animal Hour</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Update</button>
-        <a href="{% url 'saved animal hour detail' %}">Cancel</a>
-    </form>
+    <div id="edit-saved-hour">
+        <form class="edit-saved-hour-form" method="post">
+            <h2>Edit Saved Animal Hour</h2>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Update</button>
+            <a href="{% url 'saved animal hour detail' %}">Cancel</a>
+        </form>
+    </div>
 {% endblock %}

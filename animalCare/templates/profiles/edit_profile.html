@@ -1,11 +1,12 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h1>Edit Profile</h1>
-<form method="post" action="{% url 'edit profile' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Update</button>
-</form>
-
+    <div id="edit-profile">
+        <form class="edit-profile-form" method="post" action="{% url 'edit profile' %}">
+            <h2>Edit Profile</h2>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Edit</button>
+        </form>
+    </div>
 {% endblock %}

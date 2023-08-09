@@ -1,0 +1,43 @@
+#detail-animal {
+    margin-top: 2rem;
+}
+
+#detail-animal h1{
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#detail-animal .animal-list-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#detail-animal .animal-list-container p{
+    margin-bottom: 0.5rem;
+}
+
+#detail-animal .animal-list-container a{
+    text-decoration: none;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    border-radius: 1.5rem;
+    width: 40%;
+    color: white;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+#detail-animal .animal-list-container a:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    transform: scale(1.1);
+}

@@ -20,6 +20,7 @@
 .login-form h2{
     font-size: 2rem;
     font-weight: 500;
+    border-bottom: 2px solid black;
 }
 
 .login-form label{

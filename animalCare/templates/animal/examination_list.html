@@ -1,18 +1,20 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-      <h1>All Saved Animals</h1>
-    <ul>
-        {% for hours in saved_animals %}
-        <li>
-            Animal: <a href="{% url 'detail animal' hours.animal.pk %}">{{ hours.animal.name }}</a>
-            User: <a href="{% url 'detail profile' hours.user.pk %}">{{ hours.user.username }}</a>
-            Review Date: {{ hours.review_date }}
-            Review hour:: {{ hours.review_hour }}
-            Review type: {{ hours.review_type }}
-            Description: {{ hours.description }}
-            <a href="{% url 'add examination' hours.user.pk hours.animal.pk %}">Еxamine</a>
-        </li>
-        {% endfor %}
-    </ul>
+    <div id="list-examinations">
+        <h1>All Saved Animals</h1>
+        <div class="list-examinations-container">
+            {% for hours in saved_animals %}
+                <div class="list-examinations-box">
+                    <p><strong>Animal:</strong> <a href="{% url 'detail animal' hours.animal.pk %}">{{ hours.animal.name }}</a></p>
+                    <p><strong>User:</strong> <a href="{% url 'detail profile' hours.user.pk %}">{{ hours.user.username }}</a></p>
+                    <p><strong>Review Date:</strong> {{ hours.review_date }}</p>
+                    <p><strong>Review hour::</strong> {{ hours.review_hour }}</p>
+                    <p><strong>Review type:</strong> {{ hours.review_type }}</p>
+                    <p><strong>Description:</strong> {{ hours.description }}</p>
+                    <a href="{% url 'add examination' hours.user.pk hours.animal.pk %}">Examine</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

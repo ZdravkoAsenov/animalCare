@@ -1,10 +1,13 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-<form method="post" action="{% url 'delete animal' animal.pk %}">
-    {{ form }}
-    <p>Are you sure you want to delete {{ animal.name }}?</p>
-    <input type="submit" value="Delete">
-    {% csrf_token %}
-</form>
+    <div id="delete-animal">
+        <form class="delete-animal-form" method="post" action="{% url 'delete animal' animal.pk %}">
+            <h2>Delete animal</h2>
+            {{ form }}
+            <p>Are you sure you want to delete {{ animal.name }}?</p>
+            <button>Delete</button>
+            {% csrf_token %}
+        </form>
+    </div>
 {% endblock %}

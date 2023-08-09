@@ -1,20 +1,20 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h1>Saved Animals</h1>
-    <ul>
-        {% for saved_animal in saved_animals %}
-            <li>
-                <strong>Animal Name:</strong> {{ saved_animal.animal.name }}<br>
-                <strong>Review Date:</strong> {{ saved_animal.review_date }}<br>
-                <strong>Review hour:</strong> {{ saved_animal.review_hour }}<br>
-                <strong>Review type:</strong> {{ saved_animal.review_type }}<br>
-                <strong>Description:</strong> {{ saved_animal.description }}<br>
-                <a href="{% url 'saved animal hour edit' saved_animal.pk %}">Edit saved hour</a>
-                <a href="{% url 'saved animal hour delete' saved_animal.pk %}">Delete saved hour</a>
-            </li>
-        {% empty %}
-            <li>There are no scheduled vet appointments</li>
-        {% endfor %}
-    </ul>
+    <div id="saved-hours">
+        <h1>Saved hours</h1>
+        <div class="saved-hours">
+            {% for saved_animal in saved_animals %}
+                <div class="saved-hours-container">
+                    <p><strong>Animal Name:</strong> {{ saved_animal.animal.name }}<br></p>
+                    <p><strong>Review Date:</strong> {{ saved_animal.review_date }}<br></p>
+                    <p><strong>Review hour:</strong> {{ saved_animal.review_hour }}<br></p>
+                    <p><strong>Review type:</strong> {{ saved_animal.review_type }}<br></p>
+                    <p><strong>Description:</strong> {{ saved_animal.description }}<br></p>
+                    <a href="{% url 'saved animal hour edit' saved_animal.pk %}">Edit saved hour</a>
+                    <a href="{% url 'saved animal hour delete' saved_animal.pk %}">Delete saved hour</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

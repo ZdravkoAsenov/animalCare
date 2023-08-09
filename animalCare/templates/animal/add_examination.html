@@ -1,10 +1,12 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h1>Add Examination for {{ saved_animal.animal.animal_name }}</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Save Examination">
-    </form>
+    <div id="add-examinations">
+        <form class="add-examinations-form" method="post">
+            <h2>Add Examination</h2>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Save Examination</button>
+        </form>
+    </div>
 {% endblock %}

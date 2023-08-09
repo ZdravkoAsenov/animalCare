@@ -1,4 +1,4 @@
-#add-animal{
+#record-hour{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,39 +6,44 @@
     height: 100%;
 }
 
-.add-animal-form{
+#record-hour .record-hour-form{
     width: 30vw;
-    height: 85vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: #b1f1ff;
+    background-color: white;
     border-radius: 0.5rem;
 }
 
-.add-animal-form h2{
+#record-hour .record-hour-form h2{
     font-size: 2rem;
     font-weight: 500;
     border-bottom: 2px solid black;
 }
 
-.add-animal-form label{
+#record-hour .record-hour-form label{
     display: block;
     cursor: pointer;
     font-weight: 500;
     margin-bottom: 5px;
 }
 
-.add-animal-form input{
+#record-hour .record-hour-form input{
     width: 220px;
 }
 
-.add-animal-form select{
+#record-hour .record-hour-form select{
     width: 220px;
 }
 
-.add-animal-form button{
+#record-hour .record-hour-form textarea{
+    width: 220px;
+    height: 220px;
+}
+
+#record-hour .record-hour-form button{
     width: 80%;
     border-radius: 5px;
     border: none;
@@ -51,7 +56,7 @@
     margin-bottom: 1rem;
 }
 
-.add-animal-form button:hover{
+#record-hour .record-hour-form button:hover{
     background: linear-gradient(135deg, #9b59b6, #71b7e6);
     transform: scale(1.1);
 }

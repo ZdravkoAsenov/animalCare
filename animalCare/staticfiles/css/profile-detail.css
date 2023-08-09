@@ -1,0 +1,41 @@
+#detail-profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 2rem;
+}
+
+#detail-profile h1{
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    width: 30%;
+}
+
+#detail-profile .detail-animal-container{
+    width: 30vw;
+    height: 50vh;
+    display: flex;
+    margin: 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+#detail-profile .detail-animal-container a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 1.5rem;
+    color: white;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+#detail-profile .detail-animal-container a:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    transform: scale(1.1);
+}

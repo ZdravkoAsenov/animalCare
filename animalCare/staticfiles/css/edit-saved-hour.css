@@ -1,0 +1,87 @@
+#edit-saved-hour{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#edit-saved-hour .edit-saved-hour-form{
+    width: 30vw;
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+#edit-saved-hour .edit-saved-hour-form h2{
+    font-size: 2rem;
+    font-weight: 500;
+    border-bottom: 2px solid black;
+}
+
+#edit-saved-hour .edit-saved-hour-form label{
+    display: block;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+#edit-saved-hour .edit-saved-hour-form input{
+    width: 220px;
+}
+
+#edit-saved-hour .edit-saved-hour-form select{
+    width: 220px;
+}
+
+#edit-saved-hour .edit-saved-hour-form textarea{
+    width: 220px;
+    height: 220px;
+}
+
+#edit-saved-hour .edit-saved-hour-form li{
+    max-width: 220px;
+    color: red;
+}
+
+#edit-saved-hour .edit-saved-hour-form button{
+    width: 60%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    margin-bottom: 1rem;
+}
+
+#edit-saved-hour .edit-saved-hour-form button:hover{
+    background: linear-gradient(135deg, #9b59b6, #71b7e6);
+    transform: scale(1.1);
+}
+
+#edit-saved-hour .edit-saved-hour-form a{
+    width: 60%;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    margin-bottom: 1rem;
+}
+
+#edit-saved-hour .edit-saved-hour-form a:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    transform: scale(1.1);
+}
