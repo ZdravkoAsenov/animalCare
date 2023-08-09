@@ -47,12 +47,13 @@ class SavedAnimal(models.Model):
 class MedicalExamination(models.Model):
     user = models.ForeignKey(userModel, on_delete=models.CASCADE)
     animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
-    date = models.DateTimeField(auto_now_add=True)  # Set this field to the current time on creation
+    date = models.DateTimeField(auto_now_add=True)
     diagnosis = models.TextField()
     treatment = models.TextField()
 
     def __str__(self):
-        return f"{self.animal.name} - {self.date}"
+        formatted_date = self.date.strftime("%Y-%m-%d")
+        return f"{self.animal.name} - {formatted_date}"
 
     def save(self, *args, **kwargs):
         saved_animal = SavedAnimal.objects.filter(user=self.user, animal=self.animal).first()
