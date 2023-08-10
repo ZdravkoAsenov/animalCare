@@ -1,23 +1,25 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h1>Profile Details</h1>
-    <p>Username: {{ object.profile.username }}</p>
-    <p>Email: {{ object.profile.email }}</p>
-    <p>Groups:
-        {% for group in user.groups.all %}
-            {{ group.name }}
-            {% if not forloop.last %}, {% endif %}
-        {% endfor %}
-    </p>
-    <p>First Name: {{ object.first_name }}</p>
-    <p>Last Name: {{ object.last_name }}</p>
-    <p>Age: {{ object.age }}</p>
-    <p>Gender: {{ object.gender }}</p>
-     <h2>Animals:</h2>
-    <ul>
-        {% for animal in object.profile.animal_set.all %}
-            <li>{{ animal.name }}</li>
-        {% endfor %}
-    </ul>
+    <div id="admin-user-detail">
+        <h1>Profile Details</h1>
+        <div class="admin-user-detail-container">
+            <p><strong>Username:</strong> {{ object.profile.username }}</p>
+            <p><strong>Email:</strong> {{ object.profile.email }}</p>
+            <p><strong>Groups:</strong>
+                {% for group in user.groups.all %}
+                    {{ group.name }}
+                    {% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            <p><strong>First Name:</strong> {{ object.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ object.last_name }}</p>
+            <p><strong>Age:</strong> {{ object.age }}</p>
+            <p><strong>Gender:</strong> {{ object.gender }}</p>
+             <h2>Animals:</h2>
+            {% for animal in object.profile.animal_set.all %}
+                <a href="{% url 'admin animal detail' animal.pk %}">{{ animal.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

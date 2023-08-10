@@ -3,7 +3,7 @@
 @import "navigation.css";
 @import "register.css";
 @import "login.css";
-@import "add_animal.css";
+@import "add-animal.css";
 @import "list-animal.css";
 @import "animal-detail.css";
 @import "edit-animal.css";
@@ -18,3 +18,12 @@
 @import "user-examinations.css";
 @import "examinations-list.css";
 @import "add-examinations.css";
+@import "contacts.css";
+@import "admin-user-list.css";
+@import "admin-user-detail.css";
+@import "admin-animal-list.css";
+@import "admin-animal-detail.css";
+@import "admin-examination-detail.css";
+@import "admin-examination-list.css";
+@import "admin-answered-inquiries.css";
+@import "admin-unanswered-inquiries.css";

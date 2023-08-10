@@ -1,27 +1,32 @@
 {% load custom_filters %}
 
-
 <nav>
+    <div class="logo">
+        <a href="{% url 'home page' %}">Animal Care <i class="fa-solid fa-paw"></i></a>
+    </div>
+
     <a href="{% url 'home page' %}">Home page</a>
 
     {% if user.is_authenticated %}
-        <!-- User is logged in: show logout link -->
         <a href="{% url 'logout' %}">Logout</a>
         <a href="{% url 'create animal' %}">Add animal</a>
         <a href="{% url 'list animal' %}">List animal</a>
         <a href="{% url 'detail profile' user.pk %}">Profile</a>
-        <a href="{% url 'saved animal hour detail' %}">Saved hours</a>
+        <a href="{% url 'saved animal hour detail' %}">Recorded hours</a>
         <a href="{% url 'user examinations' %}">Examinations</a>
     {% else %}
-        <!-- User is not logged in: show register and login links -->
         <a href="{% url 'register' %}">Register</a>
         <a href="{% url 'login' %}">Login</a>
     {% endif %}
+
     {% if user|is_member_of_group:'Vet' %}
-            <a href="{% url 'list examination' %}">Examination list</a>
-        {% endif %}
+        <a href="{% url 'list examination' %}">Examination list</a>
+    {% endif %}
+
     {% if user|is_member_of_group:'Staff' %}
-            <a href="{% url 'home administration' %}">Administration</a>
-        {% endif %}
-<div><i class="fa-solid fa-paw"></i></div>
+        <a href="{% url 'home administration' %}">Administration</a>
+    {% endif %}
+
+    <a href="{% url 'contact form' %}">Contacts</a>
+
 </nav>

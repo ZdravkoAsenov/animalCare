@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div id="contacts">
+        <form class="contacts-form" method="post">
+            <h2>Contacts</h2>
+            <div class="info">
+                <h3></h3>
+                <p><i class="fa-solid fa-location-dot"></i> g.k. Ovcha Kupel 1, 431 Promishlena Street, Sofia, Bulgaria</p>
+                <p><i class="fa-solid fa-phone"></i> 0878 222 414</p>
+                <p><i class="fa-solid fa-envelope"></i> vetfamilybg@gmail.com</p>
+            </div>
+            <h2>Work time</h2>
+            <div class="work-time">
+                <h3>Monday - Friday</h3>
+                <p>10:00 - 19:00 <i class="fa-regular fa-clock"></i></p>
+                <h3>Saturday</h3>
+                <p>10:00 - 17:00 <i class="fa-regular fa-clock"></i></p>
+                <h3>Sunday</h3>
+                <p>10:00 - 16:00 <i class="fa-regular fa-clock"></i></p>
+            </div>
+            <h2>Contact form</h2>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Send</button>
+        </form>
+    </div>
+{% endblock %}

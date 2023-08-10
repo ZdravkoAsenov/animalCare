@@ -2,9 +2,16 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-  <h1>Examination Detail</h1>
-  <p>Title: {{ examination.title }}</p>
-  <p>Date: {{ examination.date }}</p>
-  <!-- Add other fields as needed -->
-  <a href="{% url 'admin exploration list' %}">Back to Examination List</a>
+    <div id="admin-examination-detail">
+        <h1>Examination Detail</h1>
+        <div class="admin-examination-detail-container">
+            <p><strong>User:</strong> <a href="{% url 'admin user detail' object.user.pk %}">{{ object.user }}</a></p>
+            <p><strong>Animal:</strong> <a href="{% url 'admin animal detail' object.animal.pk %}">{{ object.animal }}</a></p>
+            <p><strong>Date:</strong> {{ object.date }}</p>
+            <p><strong>Diagnosis:</strong> {{ object.diagnosis }}</p>
+            <p><strong>Treatment:</strong> {{ object.treatment }}</p>
+
+            <a href="{% url 'admin exploration list' %}">Back to Examination List</a>
+        </div>
+    </div>
 {% endblock %}

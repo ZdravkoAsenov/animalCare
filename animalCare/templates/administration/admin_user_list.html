@@ -1,19 +1,16 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h1>User List</h1>
-    <ul>
-        {% for user in users %}
-            <li>
-                {{ user.username }} - {{ user.email }} - {{ user.groups.first }}
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form }}
-                    <input type="hidden" name="user_id" value="{{ user.pk }}">
-                    <input type="submit" value="Change Group">
-                    <a href="{% url 'admin user detail' user.pk %}">User detail</a>
-                </form>
-            </li>
-        {% endfor %}
-    </ul>
+    <div id="admin-user-list">
+          <h1>User List</h1>
+          <div class="admin-user-list-container">
+            {% for user in users %}
+                <div class="user-box">
+                    <p>Username: {{ user.username }}</p>
+                    <p>Email: {{ user.email }}</p>
+                    <a href="{% url 'admin user detail' user.pk %}">Detail</a>
+                </div>
+            {% endfor %}
+          </div>
+    </div>
 {% endblock %}

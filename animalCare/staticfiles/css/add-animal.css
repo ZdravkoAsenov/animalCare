@@ -6,7 +6,7 @@
     height: 100%;
 }
 
-.add-animal-form{
+#add-animal .add-animal-form{
     width: 30vw;
     height: 85vh;
     display: flex;
@@ -17,28 +17,28 @@
     border-radius: 0.5rem;
 }
 
-.add-animal-form h2{
+#add-animal .add-animal-form h2{
     font-size: 2rem;
     font-weight: 500;
     border-bottom: 2px solid black;
 }
 
-.add-animal-form label{
+#add-animal .add-animal-form label{
     display: block;
     cursor: pointer;
     font-weight: 500;
     margin-bottom: 5px;
 }
 
-.add-animal-form input{
+#add-animal .add-animal-form input{
     width: 220px;
 }
 
-.add-animal-form select{
+#add-animal .add-animal-form select{
     width: 220px;
 }
 
-.add-animal-form button{
+#add-animal .add-animal-form button{
     width: 80%;
     border-radius: 5px;
     border: none;
@@ -51,7 +51,7 @@
     margin-bottom: 1rem;
 }
 
-.add-animal-form button:hover{
+#add-animal .add-animal-form button:hover{
     background: linear-gradient(135deg, #9b59b6, #71b7e6);
     transform: scale(1.1);
 }

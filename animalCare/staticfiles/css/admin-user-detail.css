@@ -1,0 +1,28 @@
+#admin-user-detail {
+    margin-top: 2rem;
+}
+
+#admin-user-detail h1{
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#admin-user-detail .admin-user-detail-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#admin-user-detail .admin-user-detail-container p{
+    margin-bottom: 0.5rem;
+}

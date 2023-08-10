@@ -1,0 +1,40 @@
+#admin-animal-list{
+    margin-top: 2rem;
+    margin-left: 1rem;
+}
+
+#admin-animal-list .admin-animal-list-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#admin-animal-list h1{
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#admin-animal-list .admin-animal-list-container .admin-animal-box{
+    background-color: white;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 2rem;
+}
+
+#admin-animal-list .admin-animal-list-container .admin-animal-box a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.5rem;
+    margin: 1rem;
+    border-radius: 1.5rem;
+    color: white;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+#admin-animal-list .admin-animal-list-container .admin-animal-box a:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    transform: scale(1.1);
+}

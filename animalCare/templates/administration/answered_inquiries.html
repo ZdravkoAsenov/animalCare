@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div id="admin-answered-inquiries">
+        {% include 'administration/inquires_nav.html' %}
+        <h1>Answered Inquiries</h1>
+        <div class="admin-answered-inquiries-container">
+            {% for inquiries in answered_inquiries %}
+                <div class="admin-answered-box">
+                    <p><strong>First Name</strong> {{ inquiries.first_name }}</p>
+                    <p><strong>Last Name</strong> {{ inquiries.last_name }}</p>
+                    <p><strong>Email</strong> {{ inquiries.email }}</p>
+                    <p><strong>Date</strong> {{ inquiries.created_at }}</p>
+                    <p><strong>Theme</strong> {{ inquiries.theme }}</p>
+                    <p><strong>Description</strong> {{ inquiries.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+   <div id="admin-unanswered-inquiries">
+        {% include 'administration/inquires_nav.html' %}
+        <h1>Unanswered Contacts</h1>
+        <div class="admin-unanswered-inquiries-container">
+            {% for inquiries in unanswered_inquiries %}
+                <div class="admin-unanswered-box">
+                    <p><strong>First Name</strong> {{ inquiries.first_name }}</p>
+                    <p><strong>Last Name</strong> {{ inquiries.last_name }}</p>
+                    <p><strong>Email</strong> {{ inquiries.email }}</p>
+                    <p><strong>Date</strong> {{ inquiries.created_at }}</p>
+                    <p><strong>Theme</strong> {{ inquiries.theme }}</p>
+                    <p><strong>Description</strong> {{ inquiries.description }}</p>
+                    <form class="mark-inquiries-form" method="post" action="{% url 'mark inquiries answered' inquiries.pk %}">
+                        {% csrf_token %}
+                        <button type="submit">Mark as Answered</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

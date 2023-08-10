@@ -22,7 +22,8 @@ INSTALLED_APPS = [
     'profiles',
     'common',
     'animal',
-    'user_admin'
+    'user_admin',
+    'contacts'
 ]
 
 MIDDLEWARE = [

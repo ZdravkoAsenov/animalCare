@@ -1,13 +1,18 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-  <h1>Examination List</h1>
-  <ul>
-    {% for examination in object_list %}
-      <li>
-        {{ examination.animal.name }} - {{ examination.user.username }} <!-- Adjust the fields according to your model -->
-        <a href="{% url 'admin exploration detail' examination.pk %}">Detail</a>
-      </li>
-    {% endfor %}
-  </ul>
+    <div id="admin-examination-list">
+          <h1>Examination List</h1>
+          <div class="admin-examination-list-container">
+                {% for examination in object_list %}
+                    <div class="examination-list-box">
+                        <p><strong>User</strong> {{ examination.user.username }}</p>
+                        <p><strong>Animal</strong> {{ examination.animal.name }}</p>
+                        <p><strong>Date</strong> {{ examination.date }}</p>
+
+                        <a href="{% url 'admin exploration detail' examination.pk %}">Detail</a>
+                    </div>
+            {% endfor %}
+          </div>
+    </div>
 {% endblock %}

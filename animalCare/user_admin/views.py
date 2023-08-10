@@ -1,12 +1,12 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import mixins as auth_mixins
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic as view
 
 from animal.models import Animal, MedicalExamination
+from contacts.models import Contact
 from profiles.models import ProfileModel
-from user_admin.forms import ChangeUserGroupForm
 
 
 @user_passes_test(lambda user: user.groups.filter(name='Staff').exists())
@@ -17,27 +17,9 @@ def home_administration(request):
 @user_passes_test(lambda user: user.groups.filter(name='Staff').exists())
 def user_list(request):
     userModel = get_user_model()
-
-    current_user = request.user
-    users = userModel.objects.exclude(id=current_user.id)
-
-    if request.method == 'POST':
-        form = ChangeUserGroupForm(request.POST)
-        if form.is_valid():
-            group = form.cleaned_data['group']
-            user_id = request.POST.get('user_id')
-            user = userModel.objects.get(pk=user_id)
-            user.groups.clear()
-            user.groups.add(group)
-    else:
-        form = ChangeUserGroupForm()
-
-    context = {
-        'users': users,
-        'form': form
-    }
-
-    return render(request, 'administration/admin_user_list.html', context=context)
+    users = userModel.objects.all()
+    context = {'users': users}
+    return render(request, 'administration/admin_user_list.html', context)
 
 
 class AdminUserDetailView(auth_mixins.LoginRequiredMixin, auth_mixins.UserPassesTestMixin, view.DetailView):
@@ -83,3 +65,26 @@ class AdminExaminationDetailView(auth_mixins.LoginRequiredMixin, auth_mixins.Use
     def test_func(self):
         user = self.request.user
         return user.groups.filter(name='Staff').exists()
+
+
+def unanswered_contacts(request):
+    unanswered_inquiries = Contact.objects.filter(is_answered=False)
+    context = {
+        'unanswered_inquiries': unanswered_inquiries
+    }
+    return render(request, 'administration/unanswered_inquiries.html', context)
+
+
+def mark_contact_answered(request, pk):
+    inquiries = Contact.objects.get(pk=pk)
+    inquiries.is_answered = True
+    inquiries.save()
+    return redirect('unanswered inquiries')
+
+
+def answered_contacts(request):
+    answered_inquiries = Contact.objects.filter(is_answered=True)
+    context = {
+        'answered_inquiries': answered_inquiries
+    }
+    return render(request, 'administration/answered_inquiries.html', context)

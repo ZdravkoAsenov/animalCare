@@ -1,0 +1,45 @@
+#admin-unanswered-inquiries{
+    margin-top: 2rem;
+    margin-left: 1rem;
+}
+
+#admin-unanswered-inquiries .admin-unanswered-inquiries-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#admin-unanswered-inquiries h1{
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#admin-unanswered-inquiries .admin-unanswered-inquiries-container .admin-unanswered-box{
+    background-color: white;
+    max-width: 30%;
+    border-radius: 5px;
+    margin: 2rem;
+    padding: 1rem;
+}
+
+#admin-unanswered-inquiries .admin-unanswered-inquiries-container .admin-unanswered-box p{
+    margin-bottom: 0.5rem;
+}
+
+.mark-inquiries-form button{
+    text-align: center;
+    padding: 0.5rem;
+    margin: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 1.5rem;
+    color: white;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.mark-inquiries-form button:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    transform: scale(1.1);
+}
