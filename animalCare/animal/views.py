@@ -11,7 +11,7 @@ from animal.models import Animal, SavedAnimal, MedicalExamination
 from core.mixins import AllowedGroups
 
 
-class CreateAnimalView(view.CreateView):
+class CreateAnimalView(auth_mixins.LoginRequiredMixin, view.CreateView):
     model = Animal
     form_class = CreateAnimalForm
     template_name = 'animal/animal_create.html'
@@ -22,7 +22,7 @@ class CreateAnimalView(view.CreateView):
         return super().form_valid(form)
 
 
-class AnimalListView(view.ListView):
+class AnimalListView(auth_mixins.LoginRequiredMixin, view.ListView):
     model = Animal
     template_name = 'animal/animal_list.html'
 
@@ -32,19 +32,20 @@ class AnimalListView(view.ListView):
         return queryset
 
 
-class AnimalEditView(view.UpdateView):
+class AnimalEditView(auth_mixins.LoginRequiredMixin, view.UpdateView):
     model = Animal
     form_class = EditAnimalForm
     template_name = 'animal/animal_edit.html'
     success_url = reverse_lazy('list animal')
 
 
-class AnimalDetailView(view.DetailView):
+class AnimalDetailView(auth_mixins.LoginRequiredMixin, view.DetailView):
     model = Animal
     template_name = 'animal/animal_detail.html'
     context_object_name = 'animal'
 
 
+@login_required()
 def delete_animal(request, pk):
     animal = get_object_or_404(Animal, pk=pk)
 
@@ -105,7 +106,7 @@ class SavedAnimalListView(auth_mixins.LoginRequiredMixin, view.ListView):
         return queryset
 
 
-class EditSavedAnimalView(view.UpdateView):
+class EditSavedAnimalView(auth_mixins.LoginRequiredMixin, view.UpdateView):
     model = SavedAnimal
     form_class = EditSaveAnimalForm
     template_name = 'animal/record_hour_edit.html'

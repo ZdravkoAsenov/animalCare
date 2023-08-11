@@ -67,6 +67,7 @@ def profile_edit(request):
     return render(request, 'profiles/edit_profile.html', context=context)
 
 
+@login_required()
 def profile_delete(request):
     user_model = get_user_model()
 

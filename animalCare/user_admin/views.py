@@ -67,6 +67,7 @@ class AdminExaminationDetailView(auth_mixins.LoginRequiredMixin, auth_mixins.Use
         return user.groups.filter(name='Staff').exists()
 
 
+@user_passes_test(lambda user: user.groups.filter(name='Staff').exists())
 def unanswered_contacts(request):
     unanswered_inquiries = Contact.objects.filter(is_answered=False)
     context = {
@@ -75,6 +76,7 @@ def unanswered_contacts(request):
     return render(request, 'administration/unanswered_inquiries.html', context)
 
 
+@user_passes_test(lambda user: user.groups.filter(name='Staff').exists())
 def mark_contact_answered(request, pk):
     inquiries = Contact.objects.get(pk=pk)
     inquiries.is_answered = True
@@ -82,6 +84,7 @@ def mark_contact_answered(request, pk):
     return redirect('unanswered inquiries')
 
 
+@user_passes_test(lambda user: user.groups.filter(name='Staff').exists())
 def answered_contacts(request):
     answered_inquiries = Contact.objects.filter(is_answered=True)
     context = {
