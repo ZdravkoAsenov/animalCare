@@ -15,8 +15,8 @@ urlpatterns = [
         path('<int:pk>/', AdminAnimalDetailView.as_view(), name='admin animal detail'),
     ])),
     path('examination/', include([
-        path('', AdminExaminationListView.as_view(), name='admin exploration list'),
-        path('<int:pk>/', AdminExaminationDetailView.as_view(), name='admin exploration detail'),
+        path('', AdminExaminationListView.as_view(), name='admin examination list'),
+        path('<int:pk>/', AdminExaminationDetailView.as_view(), name='admin examination detail'),
     ])),
     path('contacts/', include([
         path('unanswered', unanswered_contacts, name='unanswered inquiries'),

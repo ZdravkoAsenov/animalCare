@@ -1,8 +1,12 @@
-{% extends 'base/base.html' %}
+{% extends 'administration/home_administration.html' %}
 
-{% block content %}
+{% block admin_content %}
     <div id="admin-user-list">
           <h1>User List</h1>
+            <form method="get" action="{% url 'admin user list' %}">
+                <input type="text" name="search" placeholder="Search by username" value="{{ request.GET.search }}">
+                <button>Search</button>
+            </form>
           <div class="admin-user-list-container">
             {% for user in users %}
                 <div class="user-box">

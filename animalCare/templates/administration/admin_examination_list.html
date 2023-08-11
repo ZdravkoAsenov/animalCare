@@ -1,8 +1,13 @@
-{% extends 'base/base.html' %}
+{% extends 'administration/home_administration.html' %}
 
-{% block content %}
+{% block admin_content %}
     <div id="admin-examination-list">
           <h1>Examination List</h1>
+
+        <form method="get" action="{% url 'admin examination list' %}">
+            <input type="text" name="search" placeholder="Search by username or animal name" value="{{ request.GET.search }}">
+            <button type="submit">Search</button>
+        </form>
           <div class="admin-examination-list-container">
                 {% for examination in object_list %}
                     <div class="examination-list-box">
@@ -10,7 +15,7 @@
                         <p><strong>Animal</strong> {{ examination.animal.name }}</p>
                         <p><strong>Date</strong> {{ examination.date }}</p>
 
-                        <a href="{% url 'admin exploration detail' examination.pk %}">Detail</a>
+                        <a href="{% url 'admin examination detail' examination.pk %}">Detail</a>
                     </div>
             {% endfor %}
           </div>

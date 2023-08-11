@@ -4,8 +4,10 @@
     <nav>
         <a href="{% url 'admin user list' %}">Users</a>
         <a href="{% url 'admin animal list' %}">Animals</a>
-        <a href="{% url 'admin exploration list' %}">Examinations</a>
+        <a href="{% url 'admin examination list' %}">Examinations</a>
         <a href="{% url 'unanswered inquiries' %}">Inquiries</a>
 
     </nav>
+    {% block admin_content %}
+    {% endblock %}
 {% endblock %}

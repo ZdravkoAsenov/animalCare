@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import mixins as auth_mixins
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.utils import timezone
 from django.views import generic as view
 
 from animal.decorators import allowed_groups
@@ -130,7 +131,15 @@ class SavedAnimalDeleteView(auth_mixins.LoginRequiredMixin, view.DeleteView):
 @login_required()
 @allowed_groups(['Vet'])
 def examination_list(request):
-    saved_animals = SavedAnimal.objects.all()
+    selected_date = request.GET.get('date')  # Get the selected date from query parameters
+
+    if selected_date:
+        selected_date = timezone.datetime.strptime(selected_date, '%Y-%m-%d').date()  # Convert the string date to a date object
+
+        saved_animals = SavedAnimal.objects.filter(review_date=selected_date)
+    else:
+        today = timezone.localdate()  # Get the current date
+        saved_animals = SavedAnimal.objects.filter(review_date=today)
 
     context = {
         'saved_animals': saved_animals,

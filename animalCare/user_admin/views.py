@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import mixins as auth_mixins
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.views import generic as view
 
@@ -18,6 +19,11 @@ def home_administration(request):
 def user_list(request):
     userModel = get_user_model()
     users = userModel.objects.all()
+
+    search_query = request.GET.get('search')
+    if search_query:
+        users = users.filter(username__icontains=search_query)
+
     context = {'users': users}
     return render(request, 'administration/admin_user_list.html', context)
 
@@ -39,6 +45,15 @@ class AdminAnimalListView(auth_mixins.LoginRequiredMixin, auth_mixins.UserPasses
         user = self.request.user
         return user.groups.filter(name='Staff').exists()
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        search_query = self.request.GET.get('search')
+        if search_query:
+            queryset = queryset.filter(Q(owner__username__icontains=search_query) | Q(name__icontains=search_query))
+
+        return queryset
+
 
 class AdminAnimalDetailView(auth_mixins.LoginRequiredMixin, auth_mixins.UserPassesTestMixin, view.DetailView):
     model = Animal
@@ -52,6 +67,15 @@ class AdminAnimalDetailView(auth_mixins.LoginRequiredMixin, auth_mixins.UserPass
 class AdminExaminationListView(auth_mixins.LoginRequiredMixin, auth_mixins.UserPassesTestMixin, view.ListView):
     model = MedicalExamination
     template_name = 'administration/admin_examination_list.html'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        search_query = self.request.GET.get('search')
+        if search_query:
+            queryset = queryset.filter(Q(owner__username__icontains=search_query) | Q(name__icontains=search_query))
+
+        return queryset
 
     def test_func(self):
         user = self.request.user

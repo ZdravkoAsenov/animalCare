@@ -8,6 +8,11 @@
     flex-wrap: wrap;
 }
 
+
+#admin-user-list form{
+    margin-left: 2rem;
+}
+
 #admin-user-list h1{
     text-align: center;
     border-bottom: 2px solid #fff;
@@ -35,6 +40,22 @@
 }
 
 #admin-user-list .admin-user-list-container .user-box a:hover {
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    transform: scale(1.1);
+}
+
+#admin-user-list button{
+    display: inline;
+    text-align: center;
+    border: none;
+    padding: 0.5rem;
+    margin: 1rem;
+    border-radius: 1.5rem;
+    color: white;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+#admin-user-list button:hover {
     background: linear-gradient(-135deg, #71b7e6, #9b59b6);
     transform: scale(1.1);
 }

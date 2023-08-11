@@ -1,5 +1,9 @@
 #list-examinations {
     margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #list-examinations .list-examinations-container{
@@ -7,6 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 #list-examinations h1{
@@ -15,6 +20,35 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+#list-examinations form{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #b1f1ff;
+    border-radius: 0.5rem;
+}
+
+#list-examinations button{
+    margin-top: 1rem;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    margin-bottom: 1rem;
+}
+
+#list-examinations button:hover{
+    background: linear-gradient(135deg, #9b59b6, #71b7e6);
+    transform: scale(1.1);
+}
+
 
 #list-examinations .list-examinations-container .list-examinations-box{
     background-color: #b1f1ff;

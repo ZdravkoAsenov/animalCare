@@ -3,6 +3,13 @@
 {% block content %}
     <div id="list-examinations">
         <h1>All Saved Animals</h1>
+
+        <form method="get" action="{% url 'list examination' %}">
+            <label for="date">Choose Date:</label>
+            <input type="date" id="date" name="date" value="{{ selected_date|date:'Y-m-d' }}">
+            <button>Show Examinations</button>
+        </form>
+
         <div class="list-examinations-container">
             {% for hours in saved_animals %}
                 <div class="list-examinations-box">
