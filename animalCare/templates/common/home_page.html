@@ -1,10 +1,35 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-    <p>Welcome, {{ user.username }}!</p>
 
-    {% else %}
-    <p>Welcome, guest!</p>
-    {% endif %}
+    <div id="home-page-info">
+        <h1>Animal Care</h1>
+        <div class="home-page-container">
+            <p>
+                "Animal Care" veterinary clinic provides professional medical care and treatment
+                 of all kinds of domestic and wild animals. A team of veterinary specialists works in the clinic
+                 medicine, which, based on its many years of experience, guarantees you and your pet a professional
+                 diagnosis and effective treatment.
+            </p>
+            <br>
+            <p>Here you can be sure that your pet is in safe hands if he needs:</p>
+            <ul>
+                <li>Diagnosis and consultations in case of illness</li>
+                <li>Vaccination</li>
+                <li>Research</li>
+                <li>Dental health</li>
+                <li>Castration</li>
+                <li>Surgical interventions</li>
+            </ul>
+            <p>For even greater convenience to customers and patients, the zoo veterinary center offered a large
+                 a variety of food and accessories for your pet and all kinds of wild and decorative animals.</p>
+            <p>By trusting the veterinarians at the "Animal Care" zoo veterinary center, you can
+                 rest assured that you are entrusting your pet in safe hands.</p>
+        </div>
+    </div>
+    <div class="home-page-gallery">
+        <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNhdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60">
+        <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60">
+        <img src="https://images.unsplash.com/photo-1602466439270-97a39a1496a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmFiaXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60">
+    </div>
 {% endblock %}

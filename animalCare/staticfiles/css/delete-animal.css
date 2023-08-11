@@ -3,23 +3,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 #delete-animal .delete-animal-form{
-    width: 30vw;
-    height: 30vh;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: white;
+    background-color: #b1f1ff;
     border-radius: 0.5rem;
 }
 
 #delete-animal .delete-animal-form h2{
     font-size: 2rem;
     font-weight: 500;
+    margin-bottom: 1rem;
     border-bottom: 2px solid black;
     font-family: Arial, serif;
 }
@@ -27,6 +26,7 @@
 #delete-animal .delete-animal-form p{
     font-size: 1rem;
     font-weight: 500;
+    margin-bottom: 1rem;
     font-family: Arial, serif;
 }
 
@@ -44,6 +44,25 @@
 }
 
 #delete-animal .delete-animal-form button:hover{
+    background: linear-gradient(135deg, #9b59b6, #71b7e6);
+    transform: scale(1.1);
+}
+
+#delete-animal .delete-animal-form a{
+    width: 80%;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+#delete-animal .delete-animal-form a:hover{
     background: linear-gradient(135deg, #9b59b6, #71b7e6);
     transform: scale(1.1);
 }

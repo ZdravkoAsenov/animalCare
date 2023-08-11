@@ -1,0 +1,23 @@
+.error-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.error-page h1{
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    width: 30%;
+}
+
+.error-page p{
+    display: flex;
+    margin: 2rem;
+    padding: 3rem;
+    font-size: 1rem;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 0.5rem;
+}

@@ -17,7 +17,7 @@
 }
 
 #list-animal .animal-box{
-    background-color: white;
+    background-color: #b1f1ff;
     width: 15%;
     border-radius: 5px;
     margin: 2rem;
@@ -45,3 +45,4 @@
     background: linear-gradient(-135deg, #71b7e6, #9b59b6);
     transform: scale(1.1);
 }
+

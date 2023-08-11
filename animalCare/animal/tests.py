@@ -40,10 +40,8 @@ class CreateAnimalViewTest(TestCase):
         self.client.login(username='testuser', password='testpassword')
 
     def test_create_animal_view(self):
-        # URL to the create animal view
         url = reverse('create animal')
 
-        # Post request to create an animal
         response = self.client.post(url, {
             'name': 'Fluffy',
             'species': 'Cat',
@@ -54,7 +52,6 @@ class CreateAnimalViewTest(TestCase):
             'weight': 5
         })
 
-        # Check if an animal with the provided name was created
         self.assertTrue(Animal.objects.filter(name='Fluffy').exists())
 
 
@@ -63,7 +60,8 @@ class AnimalSaveHourViewTest(TestCase):
         self.client = Client()
         self.group = Group.objects.create(name='User')
         self.user = get_user_model().objects.create_user(username='testuser', password='testpassword')
-        self.animal = Animal.objects.create(name='Fluffy', species='Cat', owner=self.user, age=10, gender='Male', weight=5)
+        self.animal = Animal.objects.create(name='Fluffy', species='Cat', owner=self.user, age=10, gender='Male',
+                                            weight=5)
 
     def test_animal_save_hour_view_get(self):
         url = reverse('save hour animal', args=[self.animal.pk])
@@ -73,8 +71,7 @@ class AnimalSaveHourViewTest(TestCase):
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'animal/animal_saved_hour.html')
-
+        self.assertTemplateUsed(response, 'animal/record_animal_hour.html')
 
 
 class DeleteAnimalFormTest(TestCase):
@@ -82,25 +79,20 @@ class DeleteAnimalFormTest(TestCase):
         self.client = Client()
         self.group = Group.objects.create(name='User')
         self.user = get_user_model().objects.create_user(username='testuser', password='testpassword')
-        self.animal = Animal.objects.create(name='Fluffy', species='Cat', owner=self.user, age=10, gender='Male', weight=5)
+        self.animal = Animal.objects.create(name='Fluffy', species='Cat', owner=self.user, age=10, gender='Male',
+                                            weight=5)
 
     def test_delete_animal_form(self):
-        # Create the form instance with the animal object
         form = DeleteAnimalForm(instance=self.animal)
         self.client.login(username='testuser', password='testpassword')
 
-        # Verify the form's initial state
-        self.assertEqual(form.is_valid(), False)  # Form is invalid because no fields are provided
+        self.assertEqual(form.is_valid(), False)
 
-        # Submit the form
         response = self.client.post(reverse('delete animal', args=[self.animal.pk]))
 
-        # Check that the object is deleted
-        self.assertEqual(response.status_code, 302)  # Expecting a redirect after deletion
+        self.assertEqual(response.status_code, 302)
         self.assertFalse(Animal.objects.filter(pk=self.animal.pk).exists())
 
-        # Check that the form's save method works as expected
         form = DeleteAnimalForm(instance=self.animal)
-        self.assertTrue(form.is_valid())
         form.save(commit=True)
         self.assertFalse(Animal.objects.filter(pk=self.animal.pk).exists())

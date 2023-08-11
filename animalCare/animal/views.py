@@ -91,12 +91,12 @@ def animal_save_hour(request, animal_pk):
         'form': form
     }
 
-    return render(request, 'animal/animal_saved_hour.html', context=context)
+    return render(request, 'animal/record_animal_hour.html', context=context)
 
 
 class SavedAnimalListView(auth_mixins.LoginRequiredMixin, view.ListView):
     model = SavedAnimal
-    template_name = 'animal/saved_animal_detail.html'
+    template_name = 'animal/record_animal_detail.html'
     context_object_name = 'saved_animals'
 
     def get_queryset(self):
@@ -108,7 +108,7 @@ class SavedAnimalListView(auth_mixins.LoginRequiredMixin, view.ListView):
 class EditSavedAnimalView(view.UpdateView):
     model = SavedAnimal
     form_class = EditSaveAnimalForm
-    template_name = 'animal/saved_hour_edit.html'
+    template_name = 'animal/record_hour_edit.html'
     success_url = reverse_lazy('saved animal hour detail')
 
     def get_object(self, queryset=None):
@@ -118,7 +118,7 @@ class EditSavedAnimalView(view.UpdateView):
 
 class SavedAnimalDeleteView(auth_mixins.LoginRequiredMixin, view.DeleteView):
     model = SavedAnimal
-    template_name = 'animal/saved_animal_hour_delete.html'
+    template_name = 'animal/record_animal_hour_delete.html'
     success_url = reverse_lazy('saved animal hour detail')
 
     def get_object(self, queryset=None):

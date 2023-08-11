@@ -7,3 +7,4 @@ from django.dispatch import receiver
 def create_staff_group(sender, **kwargs):
     Group.objects.get_or_create(name='Staff')
     Group.objects.get_or_create(name='Vet')
+    Group.objects.get_or_create(name='User')

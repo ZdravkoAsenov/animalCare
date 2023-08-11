@@ -11,14 +11,13 @@
 
 #list-examinations h1{
     text-align: center;
-    border-bottom: 2px solid #fff;
     width: 30%;
     margin-left: auto;
     margin-right: auto;
 }
 
 #list-examinations .list-examinations-container .list-examinations-box{
-    background-color: white;
+    background-color: #b1f1ff;
     width: 60%;
     display: flex;
     flex-direction: column;

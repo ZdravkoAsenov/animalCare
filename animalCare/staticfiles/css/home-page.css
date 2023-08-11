@@ -1,0 +1,42 @@
+#home-page-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+#home-page-info h1{
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    width: 30%;
+}
+
+#home-page-info .home-page-container{
+    display: flex;
+    margin: 2rem;
+    padding: 3rem;
+    flex-direction: column;
+    background-color: #b1f1ff;
+    border-radius: 0.5rem;
+}
+
+.home-page-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin: 2rem;
+}
+
+.home-page-gallery img {
+    width: 100%; /* Make images fill their parent containers */
+    height: auto;
+ }
+
+
+@media screen and (max-width: 1000px) {
+    .home-page-gallery {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+    }
+}

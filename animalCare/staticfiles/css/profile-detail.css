@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
     margin-top: 2rem;
 }
 
@@ -14,19 +13,23 @@
 }
 
 #detail-profile .detail-animal-container{
-    width: 30vw;
-    height: 50vh;
+    padding: 2rem;
     display: flex;
     margin: 2rem;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: white;
+    background-color: #b1f1ff;
     border-radius: 0.5rem;
+}
+
+#detail-profile .detail-animal-container p{
+    margin-bottom: 1rem;
 }
 
 #detail-profile .detail-animal-container a{
     display: block;
+    margin-bottom: 1rem;
     text-align: center;
     text-decoration: none;
     padding: 0.5rem;
@@ -38,4 +41,10 @@
 #detail-profile .detail-animal-container a:hover{
     background: linear-gradient(-135deg, #71b7e6, #9b59b6);
     transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    p{
+        font-size: 2rem;
+    }
 }

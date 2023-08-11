@@ -3,12 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 #add-animal .add-animal-form{
-    width: 30vw;
-    height: 85vh;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,10 +26,11 @@
     cursor: pointer;
     font-weight: 500;
     margin-bottom: 5px;
+    margin-top: 1rem;
 }
 
 #add-animal .add-animal-form input{
-    width: 220px;
+    width: 100%;
 }
 
 #add-animal .add-animal-form select{
@@ -40,6 +39,7 @@
 
 #add-animal .add-animal-form button{
     width: 80%;
+    margin-top: 1rem;
     border-radius: 5px;
     border: none;
     color: #fff;
@@ -55,3 +55,4 @@
     background: linear-gradient(135deg, #9b59b6, #71b7e6);
     transform: scale(1.1);
 }
+

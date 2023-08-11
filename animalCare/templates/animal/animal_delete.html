@@ -7,6 +7,7 @@
             {{ form }}
             <p>Are you sure you want to delete {{ animal.name }}?</p>
             <button>Delete</button>
+            <a href="{% url 'detail animal' animal.pk %}">Cancel</a>
             {% csrf_token %}
         </form>
     </div>
